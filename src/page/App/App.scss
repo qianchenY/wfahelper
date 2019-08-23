@@ -1,0 +1,418 @@
+@import '~antd/dist/antd.css';
+@import '../../../public/css/config.scss';
+
+//公共样式文件
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    font-size: 62.5%;
+    height: 100%; 
+    
+}
+
+body {
+    margin:0 auto;
+    width: 100%;
+    max-width:1920px; 
+    overflow-x: hidden;
+    font-family: arial, helvetica, sans-serif;
+    @include font-size;
+    color: #333;
+	line-height: 1.2;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    outline: none;
+    tap-highlight-color: transparent;
+    focus-ring-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -moz-focus-ring-color: transparent;
+    @include transition;
+
+    &:hover{
+        color: $color;
+    }
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    border: 0px solid #ccc;
+}
+
+table, embed, video {
+    max-width: 100%;
+}
+
+input, textarea{
+    border: none;
+    background: none;
+	font-family: inherit;
+    
+    &[type="submit"]{
+        cursor: pointer;
+    }
+    
+    &[type="checkbox"]{
+        cursor: pointer;
+    }
+    
+    &[type="radio"]{
+        cursor: pointer;
+    }
+    
+    &:focus{
+        outline: none;
+    }
+}
+
+textarea{
+    resize: none;
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+em,i{
+    font-style: normal;
+}
+    
+/* .c-xx start */
+.c-fl{
+    @include float;
+}
+
+.c-fr{
+    @include float(right);
+}
+
+.c-cb{
+    clear: both;
+}
+
+.c-clearfix{
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.c-mg{
+    @include margin;
+}
+
+.c-oh{
+    overflow: hidden;
+}
+
+.c-wd{
+    width: $width;
+}
+
+
+.c-tsn{
+    @include transition;
+}
+
+.c-bbx{
+    box-sizing: border-box;
+}
+
+.c-pr{
+    position: relative;
+} 
+
+@for $i from 5 through 50 { 
+    @if($i % 5 == 0){
+        .c-mt-#{$i} { 
+            margin-top: $i + 0px; 
+        }             
+    }
+}
+
+.c-nomt{
+    margin: {
+        top: 0 !important;
+    };
+}
+
+.c-nomr{
+    margin: {
+        right: 0 !important;
+    };
+}
+
+.c-nomb{
+    margin: {
+        bottom: 0 !important;
+    };
+}
+
+.c-noml{
+    margin: {
+        left: 0 !important;
+    };
+}  
+
+.c-nomg{
+    margin: 0 !important;
+}  
+
+.c-nopt{
+    padding: {
+        top: 0 !important;
+    };
+}
+
+.c-nopr{
+    padding: {
+        right: 0 !important;
+    };
+}
+
+.c-nopb{
+    padding: {
+        bottom: 0 !important;
+    };
+}
+
+.c-nopl{
+    padding: {
+        left: 0 !important;
+    };
+} 
+
+.c-nopd{
+    padding: 0 !important;
+}   
+
+.c-nofont{
+    line-height: 0;
+    font-size: 0;
+} 
+
+.c-nobg{
+    background: none !important;
+}	
+
+/* .c-xx end */
+
+/* .f-xx start */
+.f-czjz {
+    position: relative;
+    top: 50%;
+    transform: translate(0px, -50%);
+}  
+
+.f-box{
+    margin: 0 auto;
+    max-width: $width;
+    overflow: visible;
+}
+
+
+@media screen and (min-width:992px) and (max-width:1219px){
+    .f-box{
+        width: 970px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:991px){
+    .f-box{
+        width: 750px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .f-box{
+        padding: {
+            left: 10px;
+            right: 10px;
+        };
+        box-sizing: border-box;
+    }
+}	
+/* .f-xx end */
+
+/* .m-xx start */
+.m-desc{
+    @include font-size(16);
+    line-height: 30px;
+
+    a{
+        color: $color;
+        
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    
+    p{ 
+        @include font-size(16);
+        line-height: 30px; 
+    }
+    
+    span{ 
+        @include font-size(16);
+        line-height: 30px; 
+    }
+    
+    b{ 
+        @include font-size(16);
+        line-height: 30px; 
+    }
+    
+    img{ 
+        max-width: 100%; 
+    }
+    
+    iframe{ 
+        display: block; 
+        max-width: 100%; 
+        margin: 0 auto;
+    }
+    
+    table{ 
+        width:90%; 
+        border-collapse:collapse; 
+        line-height:22px; 
+        border:1px solid #ccc; 
+        margin-left:auto; 
+        margin-right:auto;
+    }
+    
+    table tr td{ 
+        padding:3px; 
+        border:1px solid #ccc; 
+        background:#fff;
+        font-size:14px;
+        font-size:1.4rem;
+    } 
+        
+}    
+
+.table table{ 
+	width:100%; 
+	border-collapse:collapse; 
+	line-height:22px; 
+	border:1px solid #ccc;
+}
+.table table tr td{ 
+	padding:3px; 
+	border:1px solid #ccc;
+}
+@media screen and (max-width:1000px){
+	.table{ 
+		width:100%;  
+		overflow:scroll;
+	}
+	.table table{ 
+		width:885px;
+	}	
+}
+
+@media screen and (max-width: 767px){
+    .m-tt1{
+        font-size: 24px !important;
+        font-size: 2.4rem !important;
+    }
+
+    .m-tt2{
+        font-size: 20px !important;
+        font-size: 2rem !important;
+    }
+
+    .m-tt3{
+        font-size: 18px !important;
+        font-size: 1.8rem !important;
+    }
+
+    .m-desc1{
+        font-size: 16px !important;
+        font-size: 1.6rem !important;
+    }
+
+    .m-desc2{
+        font-size: 14px !important;
+        font-size: 1.4rem !important;
+    }
+
+    [class*="-item"]{    
+        .item-title{
+            font-size: 14px;
+            font-size: 1.4rem;
+        }
+    
+        .item-desc{
+            font-size: 13px;
+            font-size: 1.3rem;
+        }
+
+        .item-link{
+            font-size: 13px;
+            font-size: 1.3rem;
+        }
+
+        .item-modal{
+            display: none;
+        }
+    }    
+}
+/* .m-xx end */
+
+[class*="-item"]{
+    
+  .item-pic{
+      position: relative;
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      text-align: center;
+      overflow: hidden;
+
+      img{
+          @include transition;
+      }
+
+      &:hover{
+          img{
+              transform: scale(1.1);
+          }
+      }
+  }
+
+  .item-title{
+      overflow: hidden;
+
+      a{
+          &:hover{
+              color: $color;
+          }
+      }
+  }
+
+  .item-desc{
+      overflow: hidden;
+
+      a{
+          display: block;
+          &:hover{
+              color: $color;
+          }
+      }
+  }
+}

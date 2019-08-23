@@ -1,0 +1,81 @@
+@import '../../../public/css/config.scss';
+@import '~react-grid-layout/css/styles.css';
+@import '~react-resizable/css/styles.css';
+
+.m-sdlogo{
+    font-size: 16px;
+    line-height: 30px;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.m-timer{
+    font-size: 0;
+    letter-spacing: 0;
+
+    .timer-item{
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #333;
+        border-radius: 15px;
+    }
+
+    .titem-title{
+        @include font-size(18);
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+    }
+
+    .titem-bd{
+        padding: 20px 0;
+        
+        background-color: #333;
+        color: #f3f3f3;
+    }
+
+    .ant-tag{
+        color: #333;
+    }
+
+    .titem-list{
+        margin-bottom: 0;
+    }
+
+    .list-item{
+        margin-top: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        @include font-size(14);
+
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    .item-l, .item-r{
+        display: flex;
+        align-items: center;
+    }
+
+    .anticon{
+        margin-right: 3px;
+    }
+
+    a{
+        color: #fff;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.count-down-wrap{
+    margin-left: 5px;
+    @include inline-block();
+}

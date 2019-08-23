@@ -1,0 +1,54 @@
+$width:1200px;
+
+$color: #008cd6;
+
+@mixin float($value:left){
+    float: $value;
+}
+
+@mixin margin($top:0,$right:auto,$bottom:0,$left:auto){
+    margin: {
+        top: $top;
+        right: $right;
+        bottom: $bottom;
+        left: $left;
+    };
+}
+
+@mixin transition($type:all,$time:350ms){
+    transition: $type $time;
+}
+
+@mixin font-size($value:16){
+    font-size: $value + 0px;
+    font-size: $value / 10 + 0rem;
+}
+
+@mixin placeholder($color:#333){  
+    &::-webkit-input-placeholder{
+        color:$color;
+        opacity: 1;
+    }
+    &:-moz-placeholder{  
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder{  
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder{  
+        color:$color;
+        opacity: 1;
+    }
+}
+
+@mixin inline-block(){
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+@function get_w($w, $max: 1200, $b: 100){
+    @return $w / $max * $b + 0%;
+}

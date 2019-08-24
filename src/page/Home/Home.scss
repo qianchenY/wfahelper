@@ -11,6 +11,8 @@
     font-weight: bold;
 }
 
+// .m-timer start
+
 .m-timer{
     font-size: 0;
     letter-spacing: 0;
@@ -79,3 +81,11 @@
     margin-left: 5px;
     @include inline-block();
 }
+
+// .m-timer end
+// .m-hdsch start
+.m-hdsch{
+    @include inline-block();
+    margin-left: 10px;
+}
+// .m-hdsch end

@@ -1,10 +1,11 @@
 import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import Header from '../../component/Header';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Input } from 'antd';
 import HomeContent from '../../component/HomeContent';
 import './Home.scss';
 const { Header, Sider, Content } = Layout;
+const { Search } = Input;
 
 class Home extends React.Component{
     state = {
@@ -49,13 +50,22 @@ class Home extends React.Component{
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggle}
                 />
+                <div className="m-hdsch">
+                    <Search
+                        placeholder="warframe中文维基站内搜索"
+                        onSearch={value => {
+                            window.open(`https://warframe.huijiwiki.com/wiki/${value}`, '_target')
+                        }}
+                        style={{ width: 250 }}
+                    />                
+                </div>
             </Header>
             <Content
                 style={{
                     margin: '24px 16px',
                     padding: 24,
                     background: '#fff',
-                    minHeight: 280,
+                    minHeight: 850,
                 }}
             >
                 <HomeContent></HomeContent>

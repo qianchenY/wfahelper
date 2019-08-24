@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Tag, Spin, Tooltip } from 'antd';
 import { Responsive, WidthProvider } from "react-grid-layout";
 import CountDownItem from './CountDown';
+import MD5 from '../js/md5';
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface IMyComponentState {
@@ -22,18 +23,57 @@ class HomeContent extends React.Component<any, IMyComponentState>{
     }
 
     componentDidMount(){
-        fetch('/api/pc').then((response) => {
+        fetch('/wfa/pc').then((response) => {
             return response.json();
         }).then((data) => {
-            console.log(data);
-            this.setState({loading: false, data: data})
+            var str = data.nightwave.activeChallenges.map((value: any)=>{
+                return value['title'] + "/" + value['desc'];
+            }).join('/');
+            var time = new Date(),
+                appid = '20190807000324705',
+                key = '7MNRjWc_zXw0wATTcRqw',
+                salt = time.getTime(),
+                query = str,
+                from = 'en',
+                to = 'zh',
+                str1 = appid + query + salt + key,
+                sign = MD5(str1);    
+
+            fetch(`/baidu/api/trans/vip/translate?q=${query}&appid=${appid}&salt=${salt}&from=${from}&to=${to}&sign=${sign}`, {
+                method: 'get'
+            })
+            .then(response => response.json())
+            .then(data2 => {
+                var arr = data2.trans_result[0].dst.split("/");
+
+                data.nightwave.activeChallenges.forEach((val: any, i: number)=>{
+                    var a = i *2,
+                        b = a + 1;
+                    val['title'] = arr[a];
+                    val['desc'] = arr[b];
+                    return val;
+                })
+                
+                this.setState({
+                    loading: false, 
+                    data: {
+                        news: data.news,
+                        nightwave: data.nightwave,
+                        fissures: data.fissures,
+                        sortie: data.sortie                    
+                    }
+                })
+            })
         })
     }
 
     render(){
         if(this.state.loading){
             return (
-                <Spin spinning={this.state.loading} size="large"></Spin>
+                <Spin spinning={this.state.loading} size="large" style={{
+                    display: 'block',
+                    margin: '35px auto'
+                }}></Spin>
             )
         }
         var layout = {

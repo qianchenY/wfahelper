@@ -16,15 +16,24 @@ const removeFunc = (key: string) => {
  
 const timeContent = (millisecond: number) => {
     const second = millisecond / 1000;
+    let d = Math.floor(second / 86400);
     let h = Math.floor((second % 86400) / 3600);
     let m = Math.floor(((second % 86400) % 3600) / 60);
     let s = Math.floor(((second % 86400) % 3600) % 60);
+    if(d > 0){
+        return (
+            <span>
+                {d}:{h}:{m}:{s}
+            </span>
+        );
+    }else{
+        return (
+            <span>
+                {h}:{m}:{s}
+            </span>
+        );
+    }
 
-    return (
-        <span>
-            {h}:{m}:{s}
-        </span>
-    );
 
 }
  

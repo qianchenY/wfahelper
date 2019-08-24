@@ -22,7 +22,7 @@ class HomeContent extends React.Component<any, IMyComponentState>{
     }
 
     componentDidMount(){
-        fetch('https://api.warframestat.us/pc').then((response) => {
+        fetch('/api/pc').then((response) => {
             return response.json();
         }).then((data) => {
             console.log(data);
@@ -45,27 +45,27 @@ class HomeContent extends React.Component<any, IMyComponentState>{
             ],
             md: [
                 {i: 'a', x: 0, y: 0, w: 6, h: 2},
-                {i: 'b', x: 6, y: 0, w: 6, h: 3},
-                {i: 'c', x: 0, y: 2, w: 6, h: 2},
-                {i: 'd', x: 6, y: 2, w: 6, h: 2}
+                {i: 'b', x: 6, y: 0, w: 6, h: 4},
+                {i: 'c', x: 0, y: 2, w: 6, h: 3},
+                {i: 'd', x: 6, y: 4, w: 6, h: 2}
             ],
             sm: [
                 {i: 'a', x: 0, y: 0, w: 6, h: 2},
-                {i: 'b', x: 6, y: 0, w: 6, h: 3},
-                {i: 'c', x: 0, y: 2, w: 6, h: 2},
-                {i: 'd', x: 6, y: 2, w: 6, h: 2}
+                {i: 'b', x: 6, y: 0, w: 6, h: 4},
+                {i: 'c', x: 0, y: 2, w: 6, h: 3},
+                {i: 'd', x: 6, y: 4, w: 6, h: 2}
             ],
             xs: [
                 {i: 'a', x: 0, y: 0, w: 12, h: 2},
-                {i: 'b', x: 0, y: 2, w: 12, h: 3},
-                {i: 'c', x: 0, y: 5, w: 12, h: 2},
-                {i: 'd', x: 0, y: 7, w: 12, h: 2}
+                {i: 'b', x: 0, y: 2, w: 12, h: 4},
+                {i: 'c', x: 0, y: 6, w: 12, h: 3},
+                {i: 'd', x: 0, y: 9, w: 12, h: 2}
             ],
             xss: [
                 {i: 'a', x: 0, y: 0, w: 12, h: 2},
-                {i: 'b', x: 0, y: 2, w: 12, h: 3},
-                {i: 'c', x: 0, y: 5, w: 12, h: 2},
-                {i: 'd', x: 0, y: 7, w: 12, h: 2}
+                {i: 'b', x: 0, y: 2, w: 12, h: 4},
+                {i: 'c', x: 0, y: 6, w: 12, h: 3},
+                {i: 'd', x: 0, y: 9, w: 12, h: 2}
             ],
         };
         return (
@@ -75,6 +75,7 @@ class HomeContent extends React.Component<any, IMyComponentState>{
                     layouts={layout} 
                     autoSize={true}
                     cols={{lg: 12, md: 12, sm: 12, xs: 12, xxs: 12}}
+                    rowHeight={150}
                 >
                 <div className="timer-item" key="a">
                     <p className="titem-title">最新资讯</p>
